@@ -1,0 +1,42 @@
+net CPUSS_swj_swclk_tclk
+	term   ":ioport6:pin7.fb"
+	switch ":ioport6:pin7.fb==>:ioport6:smartio_mux_out7.direct_in"
+	switch ":ioport6:smartio_mux_out7.smartio_mux_out==>:ioport6:hsiomIn7.hsiomIn7"
+	switch ":ioport6:hsiomIn7.fixedOut7_DPSLP_5==>:CPUSS[0]swj_swclk_tclk_input_permute.ioport6_fixedOut7_DPSLP_5"
+	switch ":CPUSS[0]swj_swclk_tclk_input_permute.CPUSS[0]swj_swclk_tclk==>:CPUSScontainer:CPUSS[0].swj_swclk_tclk"
+	term   ":CPUSScontainer:CPUSS[0].swj_swclk_tclk"
+end CPUSS_swj_swclk_tclk
+net CPUSS_swj_swdio_tms
+	term   ":ioport6:pin6.fb"
+	switch ":ioport6:pin6.fb==>:ioport6:smartio_mux_out6.direct_in"
+	switch ":ioport6:smartio_mux_out6.smartio_mux_out==>:ioport6:hsiomIn6.hsiomIn6"
+	switch ":ioport6:hsiomIn6.fixedOut6_DPSLP_5==>:CPUSS[0]swj_swdio_tms_input_permute.ioport6_fixedOut6_DPSLP_5"
+	switch ":CPUSS[0]swj_swdio_tms_input_permute.CPUSS[0]swj_swdio_tms==>:CPUSScontainer:CPUSS[0].swj_swdio_tms"
+	term   ":CPUSScontainer:CPUSS[0].swj_swdio_tms"
+end CPUSS_swj_swdio_tms
+net \mUART:Net_1172\
+	term   ":ioport6:pin4.fb"
+	switch ":ioport6:pin4.fb==>:ioport6:smartio_mux_out4.direct_in"
+	switch ":ioport6:smartio_mux_out4.smartio_mux_out==>:ioport6:hsiomIn4.hsiomIn4"
+	switch ":ioport6:hsiomIn4.fixedOut4_ACT_6==>:SCB[6]uart_rx_input_permute.ioport6_fixedOut4_ACT_6"
+	switch ":SCB[6]uart_rx_input_permute.SCB[6]uart_rx==>:SCBcontainer:SCB[6].uart_rx"
+	term   ":SCBcontainer:SCB[6].uart_rx"
+end \mUART:Net_1172\
+net \mUART:Net_847_ff0\
+	term   ":Clockcontainer:Clock[0].ff_div_6"
+	switch ":Clockcontainer:Clock[0].ff_div_6==>:Clockcontainer:ff_permute.ff_div_6"
+	switch ":Clockcontainer:ff_permute.Clock[0]ff_div_6==>:SCBcontainer:SCB[6].clock"
+	term   ":SCBcontainer:SCB[6].clock"
+end \mUART:Net_847_ff0\
+net \mUART:intr_wire\
+	term   ":SCBcontainer:SCB[6].interrupt"
+	switch ":SCBcontainer:SCB[6].interrupt==>:intc_0:interrupt47.interrupt"
+	term   ":intc_0:interrupt47.interrupt"
+end \mUART:intr_wire\
+net \mUART:tx_wire\
+	term   ":SCBcontainer:SCB[6].uart_tx"
+	switch ":SCBcontainer:SCB[6].uart_tx==>:ioport6:hsiomOut5.fixedIn5_ACT_6"
+	switch ":ioport6:hsiomOut5.hsiomOut5==>:ioport6:smartio_mux_in5.direct_out"
+	switch ":ioport6:smartio_mux_in5.smartio_mux_in==>:ioport6:pin5.pin_input"
+	term   ":ioport6:pin5.pin_input"
+end \mUART:tx_wire\

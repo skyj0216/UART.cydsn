@@ -1,0 +1,7 @@
+C:\Users\User\Documents\PSoC Creator\Workspace01\sys_tic.cydsn\sys_tic.cyprj|68b82dea-bbd3-4b0a-bf94-3ed480783050
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|2ff9d53e-c398-4557-8647-c5d01228fc31
+C:\Users\User\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|a5db9bb8-23a4-4fed-8770-eb3abc53fc6a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ec2dd221-34f7-48cb-9e33-f4646ee31ece
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|817d35aa-c2fb-4b91-babf-1b7dcff0fd98
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|914bb1ca-b0fc-45fe-b5e9-3144d6448627
+C:\Users\User\Documents\PSoC Creator\Workspace01\UART.cydsn\UART.cyprj|68a94919-0286-456e-9b48-2914391ef46d

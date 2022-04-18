@@ -1,0 +1,161 @@
+--
+--	Conversion of UART.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Mon Apr 11 10:29:23 2022
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL \mUART:Net_847\ : bit;
+SIGNAL \mUART:clock_wire\ : bit;
+SIGNAL \mUART:Net_22\ : bit;
+SIGNAL \mUART:Net_23\ : bit;
+SIGNAL one : bit;
+SIGNAL \mUART:tx_wire\ : bit;
+SIGNAL \mUART:tmpFB_0__tx_net_0\ : bit;
+SIGNAL \mUART:tmpIO_0__tx_net_0\ : bit;
+TERMINAL \mUART:tmpSIOVREF__tx_net_0\ : bit;
+SIGNAL zero : bit;
+SIGNAL \mUART:Net_1172\ : bit;
+SIGNAL \mUART:tmpIO_0__rx_net_0\ : bit;
+TERMINAL \mUART:tmpSIOVREF__rx_net_0\ : bit;
+SIGNAL \mUART:rx_wire\ : bit;
+SIGNAL \mUART:cts_wire\ : bit;
+SIGNAL \mUART:intr_wire\ : bit;
+SIGNAL \mUART:rts_wire\ : bit;
+SIGNAL \mUART:tx_en_wire\ : bit;
+SIGNAL \mUART:Net_145\ : bit;
+SIGNAL \mUART:Net_146\ : bit;
+SIGNAL \mUART:Net_154\ : bit;
+SIGNAL \mUART:Net_155_3\ : bit;
+SIGNAL \mUART:Net_155_2\ : bit;
+SIGNAL \mUART:Net_155_1\ : bit;
+SIGNAL \mUART:Net_155_0\ : bit;
+SIGNAL \mUART:Net_156\ : bit;
+SIGNAL \mUART:Net_157\ : bit;
+SIGNAL Net_7 : bit;
+SIGNAL Net_6 : bit;
+SIGNAL \mUART:Net_161\ : bit;
+SIGNAL Net_4 : bit;
+SIGNAL Net_3 : bit;
+SIGNAL Net_9 : bit;
+SIGNAL Net_10 : bit;
+SIGNAL Net_2 : bit;
+BEGIN
+
+one <=  ('1') ;
+
+zero <=  ('0') ;
+
+\mUART:SCBCLK\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"7c81179a-1489-4413-ae53-0c847f71a5f4/b68e5b9d-7828-482d-a282-930f990e3b3e",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"723379629.62963",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>\mUART:Net_847\,
+		dig_domain_out=>open);
+\mUART:tx\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"7c81179a-1489-4413-ae53-0c847f71a5f4/65f3af6c-759b-4ccb-8c66-5c95ba1f5f4f",
+		drive_mode=>"6",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"1",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>\mUART:tx_wire\,
+		fb=>(\mUART:tmpFB_0__tx_net_0\),
+		analog=>(open),
+		io=>(\mUART:tmpIO_0__tx_net_0\),
+		annotation=>(open),
+		siovref=>(\mUART:tmpSIOVREF__tx_net_0\));
+\mUART:rx\:cy_mxs40_gpio_v1_0
+	GENERIC MAP(cy_registers=>"",
+		width=>1,
+		sio_grp_cnt=>0,
+		id=>"7c81179a-1489-4413-ae53-0c847f71a5f4/b7e8018e-1ef7-49c0-b5a5-61641a03e31c",
+		drive_mode=>"0",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		intr_mode=>"0",
+		io_voltage=>"",
+		output_conn=>"0",
+		oe_conn=>"0",
+		output_sync=>"0",
+		oe_sync=>"0",
+		drive_strength=>"0",
+		max_frequency=>"100",
+		output_current_cap=>"8",
+		i2c_mode=>"0",
+		pin_aliases=>"",
+		pin_mode=>"I",
+		slew_rate=>"0",
+		vtrip=>"0",
+		use_annotation=>"0",
+		hotswap_needed=>"0")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>\mUART:Net_1172\,
+		analog=>(open),
+		io=>(\mUART:tmpIO_0__rx_net_0\),
+		annotation=>(open),
+		siovref=>(\mUART:tmpSIOVREF__rx_net_0\));
+\mUART:SCB_IRQ\:cy_mxs40_isr_v1_0
+	GENERIC MAP(cy_registers=>"",
+		deepsleep_required=>'0',
+		int_type=>"10")
+	PORT MAP(int_signal=>\mUART:intr_wire\);
+\mUART:SCB\:cy_mxs40_scb_v1_10
+	GENERIC MAP(cy_registers=>"",
+		requires_io_preconfigure=>'0',
+		mode=>2,
+		master=>'0')
+	PORT MAP(clock=>\mUART:Net_847\,
+		uart_rx=>\mUART:Net_1172\,
+		uart_tx=>\mUART:tx_wire\,
+		uart_rts=>\mUART:rts_wire\,
+		uart_cts=>zero,
+		uart_tx_en=>\mUART:tx_en_wire\,
+		i2c_scl=>\mUART:Net_145\,
+		i2c_sda=>\mUART:Net_146\,
+		spi_clk_m=>\mUART:Net_154\,
+		spi_clk_s=>zero,
+		spi_select_m=>(\mUART:Net_155_3\, \mUART:Net_155_2\, \mUART:Net_155_1\, \mUART:Net_155_0\),
+		spi_select_s=>zero,
+		spi_mosi_m=>\mUART:Net_156\,
+		spi_miso_m=>zero,
+		spi_mosi_s=>zero,
+		spi_miso_s=>\mUART:Net_157\,
+		interrupt=>\mUART:intr_wire\,
+		tr_tx_req=>Net_7,
+		tr_rx_req=>Net_6,
+		tr_i2c_scl_filtered=>\mUART:Net_161\);
+
+END R_T_L;
